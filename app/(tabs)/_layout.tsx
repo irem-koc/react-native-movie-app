@@ -28,15 +28,79 @@ const Layout = () => {
       />
       <Tabs.Screen
         name="profile"
-        options={{ title: "Profile", headerShown: false }}
+        options={{
+          title: "profile",
+          headerShown: false,
+          tabBarIcon: ({ focused }) => (
+            <>
+              <ImageBackground source={images.highlight}>
+                <Image
+                  source={icons.person}
+                  tintColor={"#151322"}
+                  className="size-5"
+                />
+                <Text>Home</Text>
+              </ImageBackground>
+            </>
+          ),
+        }}
       />
       <Tabs.Screen
         name="saved"
-        options={{ title: "Saved", headerShown: false }}
+        options={{
+          title: "saved",
+          headerShown: false,
+          tabBarIcon: ({ focused }) => (
+            <>
+              <ImageBackground source={images.highlight}>
+                <Image
+                  source={icons.save}
+                  tintColor={"#151322"}
+                  className="size-5"
+                />
+                <Text>Home</Text>
+              </ImageBackground>
+            </>
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="saved"
+        options={{
+          title: "saved",
+          headerShown: false,
+          tabBarIcon: ({ focused }) => (
+            <>
+              <ImageBackground source={images.highlight}>
+                <Image
+                  source={icons.save}
+                  tintColor={"#151322"}
+                  className="size-5"
+                />
+                <Text>Home</Text>
+              </ImageBackground>
+            </>
+          ),
+        }}
       />
       <Tabs.Screen
         name="search"
-        options={{ title: "Search", headerShown: false }}
+        options={{
+          title: "search",
+          headerShown: false,
+          tabBarIcon: ({ focused }) => (
+            <>
+              <ImageBackground source={images.highlight}>
+                <Image
+                  source={icons.search}
+                  tintColor={"#151322"}
+                  className="size-5"
+                />
+                <Text>Home</Text>
+              </ImageBackground>
+            </>
+          ),
+        }}
       />
     </Tabs>
   );
