@@ -1,85 +1,40 @@
+import TabBarIcon from "@/components/molecules/TabBarIcon/TabBarIcon";
 import { icons } from "@/constants/icons";
-import { images } from "@/constants/images";
 import { Tabs } from "expo-router";
 import React from "react";
-import { Image, ImageBackground, Text } from "react-native";
 
 const Layout = () => {
   return (
-    <Tabs>
+    <Tabs
+      screenOptions={{
+        tabBarShowLabel: false,
+        tabBarItemStyle: {
+          width: "100%",
+          height: "100%",
+          justifyContent: "center",
+          alignItems: "center",
+        },
+        tabBarStyle: {
+          backgroundColor: "#0f0d23",
+          borderRadius: 50,
+          marginHorizontal: 20,
+          paddingHorizontal: 12,
+          marginBottom: 36,
+          height: 54,
+          position: "absolute",
+          overflow: "hidden",
+          borderWidth: 1,
+          borderColor: "#0f0d23",
+        },
+      }}
+    >
       <Tabs.Screen
         name="index"
         options={{
-          title: "Index",
+          title: "index",
           headerShown: false,
           tabBarIcon: ({ focused }) => (
-            <>
-              <ImageBackground source={images.highlight}>
-                <Image
-                  source={icons.home}
-                  tintColor={"#151322"}
-                  className="size-5"
-                />
-                <Text>Home</Text>
-              </ImageBackground>
-            </>
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="profile"
-        options={{
-          title: "profile",
-          headerShown: false,
-          tabBarIcon: ({ focused }) => (
-            <>
-              <ImageBackground source={images.highlight}>
-                <Image
-                  source={icons.person}
-                  tintColor={"#151322"}
-                  className="size-5"
-                />
-                <Text>Home</Text>
-              </ImageBackground>
-            </>
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="saved"
-        options={{
-          title: "saved",
-          headerShown: false,
-          tabBarIcon: ({ focused }) => (
-            <>
-              <ImageBackground source={images.highlight}>
-                <Image
-                  source={icons.save}
-                  tintColor={"#151322"}
-                  className="size-5"
-                />
-                <Text>Home</Text>
-              </ImageBackground>
-            </>
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="saved"
-        options={{
-          title: "saved",
-          headerShown: false,
-          tabBarIcon: ({ focused }) => (
-            <>
-              <ImageBackground source={images.highlight}>
-                <Image
-                  source={icons.save}
-                  tintColor={"#151322"}
-                  className="size-5"
-                />
-                <Text>Home</Text>
-              </ImageBackground>
-            </>
+            <TabBarIcon focused={focused} title="Home" tabIcon={icons.home} />
           ),
         }}
       />
@@ -89,16 +44,35 @@ const Layout = () => {
           title: "search",
           headerShown: false,
           tabBarIcon: ({ focused }) => (
-            <>
-              <ImageBackground source={images.highlight}>
-                <Image
-                  source={icons.search}
-                  tintColor={"#151322"}
-                  className="size-5"
-                />
-                <Text>Home</Text>
-              </ImageBackground>
-            </>
+            <TabBarIcon
+              focused={focused}
+              title="Search"
+              tabIcon={icons.search}
+            />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="saved"
+        options={{
+          title: "saved",
+          headerShown: false,
+          tabBarIcon: ({ focused }) => (
+            <TabBarIcon focused={focused} title="Save" tabIcon={icons.save} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="profile"
+        options={{
+          title: "profile",
+          headerShown: false,
+          tabBarIcon: ({ focused }) => (
+            <TabBarIcon
+              focused={focused}
+              title="Profile"
+              tabIcon={icons.person}
+            />
           ),
         }}
       />
