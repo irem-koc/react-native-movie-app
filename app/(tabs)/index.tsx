@@ -3,16 +3,17 @@ import { icons } from "@/constants/icons";
 import { images } from "@/constants/images";
 import { fetchMovie } from "@/services/api";
 import { useRouter } from "expo-router";
-import { useEffect } from "react";
-import { Image, ScrollView, View } from "react-native";
+import { useEffect, useState } from "react";
+import { Image, ScrollView, Text, View } from "react-native";
 
 export default function Index() {
+  const [data, setData] = useState();
   const router = useRouter();
   useEffect(() => {
     const fetchData = async () => {
       try {
         const data = await fetchMovie("");
-        console.log(data, "---->dataaa");
+        setData(data);
       } catch (error) {
         console.error("Error fetching movie:", error);
       }
@@ -40,6 +41,14 @@ export default function Index() {
             placeholder="Search for a movie"
           />
         </View>
+        {data &&
+          data?.map((item, index) => {
+            return (
+              <Text key={index} className="text-white">
+                {item.id}
+              </Text>
+            );
+          })}
       </ScrollView>
     </View>
   );
