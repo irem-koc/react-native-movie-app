@@ -1,18 +1,12 @@
-import { icons } from "@/constants/icons";
 import { Link } from "expo-router";
 import React from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 
 const MovieCard = (props: Movie) => {
-  console.log(props, "propspropsprops");
   const { id, title, poster_path, vote_average, release_date } = props;
-  console.log(poster_path, "poster_pathposter_path");
   return (
     <Link href={`/movies/${id}`} asChild>
-      <TouchableOpacity
-        className="w-[30%]"
-        onPress={() => console.log("press")}
-      >
+      <TouchableOpacity className="w-[30%]">
         <Image
           source={{
             uri: poster_path
@@ -26,14 +20,14 @@ const MovieCard = (props: Movie) => {
           {title}
         </Text>
         <View className="flex-row items-center justify-start gap-x-1">
-          <Image
+          {/* <Image
             source={{
               uri: icons.star,
             }}
             className="size-4"
-          />
+          /> */}
           <Text className="text-xs text-white font-bold uppercase">
-            {Math.round(vote_average / 2)}
+            *{Math.round(vote_average / 2)}
           </Text>
         </View>
         <View className="flex-row items-center justify-between">
