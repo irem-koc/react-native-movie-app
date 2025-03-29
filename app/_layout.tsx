@@ -7,9 +7,17 @@ export default function RootLayout() {
   return (
     <QueryClientProvider client={queryClient}>
       <StatusBar hidden />
-      <Stack>
+      <Stack
+        screenOptions={{
+          headerShown: true,
+          headerBackTitle: "Geri",
+        }}
+      >
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="movies/[id]" options={{ headerShown: false }} />
+        <Stack.Screen
+          name="movies/[id]"
+          options={{ headerShown: true, title: "Film Detayları" }}
+        />
       </Stack>
     </QueryClientProvider>
   );
